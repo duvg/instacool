@@ -1,23 +1,28 @@
 import * as React from 'react';
 
 
-const style = {
-    alignItems: 'center',
+const style = (center: boolean): React.CSSProperties => ({
+    alignItems: center ? 'center' : undefined,
     backgroundColor: '#eee',
     display: 'flex',
+    flexDirection: 'column',
     height: 'calc(100vh - 20px)',
-    justifyContent: 'center',
+    justifyContent: center ? 'center' : undefined,
     padding: '10px 15px',
     width: 'calc(100vw - 30px)',
-    
-    
+})
+
+
+interface IContainerProps {
+    center?: boolean
 }
-export default class Container extends React.Component {
+
+export default class Container extends React.Component<IContainerProps> {
     
     public render () {
-        const { children } = this.props;
+        const { children, center = false } = this.props;
         return(
-            <div style={style}>
+            <div style={style(center)}>
                 { children }
             </div>
         )

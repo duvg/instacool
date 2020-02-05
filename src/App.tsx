@@ -1,31 +1,24 @@
 import * as React from 'react';
 import './App.css';
 
-// Components
-import Button from './components/layout/Button';
-import Card from './components/layout/Card';
-import Center from './components/layout/Center';
-import Container from './components/layout/Container';
-import Input from './components/layout/Input';
-import Link from './components/layout/Link';
-import Title from './components/layout/Title';
+import Navbar from './components/layout/Navbar';
+import Login from './containers/auth/Login';
+
+import Register from './containers/auth/Register';
+import NewsFeed from './containers/NewsFeed';
 
 
+import { Route } from 'react-router';
 
 class App extends React.Component {
-  public render() {
+  public render() { 
     return (
-      <Container>
-        <Card>
-          <Title>Inciar Sesion</Title>
-          <Input placeholder='Correo' label="Correo" />
-          <Input placeholder='Contraseña' label="Contraseña" />
-          <Button block={true}>Enviar</Button>
-          <Center>
-            <Link>No tienes Cuenta? Registrate!</Link>
-          </Center>
-        </Card>
-      </Container>      
+      <div>
+        <Route exact={true}  path="/" component={Login} />
+        <Route exact={true}  path="/register" component={Register} />
+        <Route path="/app" component={Navbar} />
+        <Route exact={true}  path="/app/newsfeed" component={NewsFeed} />
+      </div>
     );
   }
 }

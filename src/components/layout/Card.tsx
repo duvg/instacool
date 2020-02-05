@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-
-
 // Custom styles
 const style = {
     backgroundColor: '#fff',
