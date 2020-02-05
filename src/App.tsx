@@ -1,20 +1,31 @@
 import * as React from 'react';
 import './App.css';
 
-import logo from './logo.svg';
+// Components
+import Button from './components/layout/Button';
+import Card from './components/layout/Card';
+import Center from './components/layout/Center';
+import Container from './components/layout/Container';
+import Input from './components/layout/Input';
+import Link from './components/layout/Link';
+import Title from './components/layout/Title';
+
+
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        <Card>
+          <Title>Inciar Sesion</Title>
+          <Input placeholder='Correo' label="Correo" />
+          <Input placeholder='Contraseña' label="Contraseña" />
+          <Button block={true}>Enviar</Button>
+          <Center>
+            <Link>No tienes Cuenta? Registrate!</Link>
+          </Center>
+        </Card>
+      </Container>      
     );
   }
 }
