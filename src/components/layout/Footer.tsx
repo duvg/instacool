@@ -22,12 +22,18 @@ const styles = {
     
 }
 
-export default class Footer extends React.Component {
+interface IFooterProps {
+    like: () => void,
+    share: () => void
+}
+
+export default class Footer extends React.Component<IFooterProps> {
     public render(){
+        const { like, share } = this.props;
         return(
             <div style={styles.footer}>
-                <div style={styles.button}> <FontAwesomeIcon icon={faThumbsUp} /> Like</div>
-                <div style={styles.button}> <FontAwesomeIcon icon={faRetweet} /> Compartir</div>
+                <div onClick={like} style={styles.button}> <FontAwesomeIcon icon={faThumbsUp}  /> Like</div>
+                <div onClick={share} style={styles.button}> <FontAwesomeIcon icon={faRetweet} /> Compartir</div>
             </div>
         );
     }

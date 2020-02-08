@@ -9,21 +9,25 @@ const styles = {
         border: '1px solid #DDD',
         marginBottom: '10px',
         padding: '10px 15px',
-        
     },
+    image: {
+        width: '300px',
+    }
 }
 
 interface IPostProps {
-    image: string
+    image: string,
+    like: () => void,
+    share: () => void,
 }
 
 export default class Post extends React.Component<IPostProps> {
     public render () {
-        const { image } = this.props;
+        const { image, like, share } = this.props;
         return (
             <div style={styles.container}>
-                <img src={image} />
-                <Footer />
+                <img src={image} style={styles.image} />
+                <Footer like={like} share={share} />
             </div>
         )
     }
