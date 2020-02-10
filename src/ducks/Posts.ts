@@ -1,20 +1,23 @@
 import { firestore } from 'firebase';
 import { AnyAction, Dispatch } from 'redux';
 import { IServices } from 'src/services';
+import { download } from 'src/Utils';
 
 // Types
 const POST_FETCH_START = 'POST_FETCH_START';
 const POST_FETCH_SUCCESS = 'POST_FETCH_SUCCESS';
-const POST_FETCH_ERROR = 'POST_FETCH_ERROR' 
+const POST_FETCH_ERROR = 'POST_FETCH_ERROR';
+const POST_ADD = 'POST_ADD';
 
+export interface IPost {
+    comment: string,
+    userId: string,
+    createdAt: firestore.Timestamp,
+    imageURL: string
+}
 
 export interface IDataPosts {
-    [key: string]: {
-        comment: string,
-        userId: string,
-        createdAt: firestore.Timestamp,
-        imageURL: string
-    }
+    [key: string]: IPost
 }
 
 // Action creators
@@ -31,12 +34,16 @@ const fetchError = (error: Error) => ({
     type: POST_FETCH_ERROR
 });
 
+const postAdd = (payload: IDataPosts) => ({
+    payload,
+    type: POST_ADD,
+});
+
 const initialState = {
     data: {},
     fetched: false,
     fetching: false,
 }
-
 
 export default function reducer (state = initialState, action: AnyAction) {
     switch(action.type) {
@@ -60,12 +67,19 @@ export default function reducer (state = initialState, action: AnyAction) {
                 fetched: false,
                 fetching: false
             }
+        case POST_ADD:
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    ...action.payload
+                }
+            }
         default:
             return state;
     }
     return state;
 }
-
 
 // Thunk
 export const fetchPosts = () => 
@@ -90,21 +104,59 @@ export const fetchPosts = () =>
             })
             dispatch(fetchSuccess(posts));
 
-        } catch (error) {
-            
+        } catch (error) {            
             dispatch(fetchError(error));
         }
     }
 
-
 export const like = (id: string) =>  
-    async (dispatch: Dispatch, getState: () => any, {}: IServices) => {
-        // tslint:disable-next-line:no-console
-        console.log(id)
+    async (dispatch: Dispatch, getState: () => any, { auth }: IServices) => {
+        
+        if(!auth.currentUser) {
+            return;
+        }
+        // Token
+        const token = await auth.currentUser.getIdToken();
+        await fetch(`/api/posts/${id}/like`, {
+            headers: {
+                authorization: token
+            }
+        });
     } 
 
 export const share = (id: string) => 
-    async (dispatch: Dispatch, getState: () => any, {}: IServices) => {
+    async (dispatch: Dispatch, getState: () => any, { auth, db, storage }: IServices) => {
         // tslint:disable-next-line:no-console
-        console.log(id)
+        if(!auth.currentUser) {
+            return;
+        }
+        // Token
+        const token = await auth.currentUser.getIdToken();
+        const result = await fetch(`/api/posts/${id}/share`, {
+            headers: {
+                authorization: token
+            }
+        });
+
+        // Obtener la url de la imagen
+        const url = await storage.ref(`posts/${id}.jpg`).getDownloadURL();
+        const blob: any = await download(url);
+        const { id: postId }: { id: string }= await result.json();
+        // Buscar el post para subir la imagen
+        const snap = await db.collection('posts').doc(postId).get();
+        // Subir la imagen
+        const refImage = storage.ref(`posts/${postId}.jpg`);
+        refImage.put(blob);
+
+        // URL de descarga de la imagen
+        const imageURL = await refImage.getDownloadURL();
+
+        // Actualizar el recurso
+        dispatch(postAdd({ [snap.id]: {
+            ...snap.data(),
+            imageURL,
+        } } as IDataPosts));
+
     }
+
+

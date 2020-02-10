@@ -5,6 +5,7 @@
 
 # firebase config
 firebase.ts
+key.json
 
 # testing
 /coverage

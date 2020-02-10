@@ -1,178 +1,37 @@
-[debug] [2020-02-08T16:39:59.817Z] ----------------------------------------------------------------------
-[debug] [2020-02-08T16:39:59.821Z] Command:       /usr/local/bin/node /usr/bin/firebase serve --only functions
-[debug] [2020-02-08T16:39:59.821Z] CLI Version:   7.12.1
-[debug] [2020-02-08T16:39:59.821Z] Platform:      linux
-[debug] [2020-02-08T16:39:59.821Z] Node Version:  v8.13.0
-[debug] [2020-02-08T16:39:59.822Z] Time:          Sat Feb 08 2020 11:39:59 GMT-0500 (-05)
-[debug] [2020-02-08T16:39:59.822Z] ----------------------------------------------------------------------
-[debug] [2020-02-08T16:39:59.822Z] 
-[debug] [2020-02-08T16:39:59.833Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-02-08T16:39:59.833Z] > authorizing via signed-in user
-[debug] [2020-02-08T16:39:59.833Z] [iam] checking project instacool-96942 for permissions ["firebase.projects.get"]
-[debug] [2020-02-08T16:39:59.836Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/instacool-96942:testIamPermissions  
+[debug] [2020-02-10T02:48:01.343Z] ----------------------------------------------------------------------
+[debug] [2020-02-10T02:48:01.349Z] Command:       /usr/local/bin/node /usr/bin/firebase serve --only functions
+[debug] [2020-02-10T02:48:01.350Z] CLI Version:   7.12.1
+[debug] [2020-02-10T02:48:01.350Z] Platform:      linux
+[debug] [2020-02-10T02:48:01.350Z] Node Version:  v8.13.0
+[debug] [2020-02-10T02:48:01.350Z] Time:          Sun Feb 09 2020 21:48:01 GMT-0500 (-05)
+[debug] [2020-02-10T02:48:01.350Z] ----------------------------------------------------------------------
+[debug] [2020-02-10T02:48:01.351Z] 
+[debug] [2020-02-10T02:48:01.685Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-10T02:48:01.685Z] > authorizing via signed-in user
+[debug] [2020-02-10T02:48:01.686Z] [iam] checking project instacool-96942 for permissions ["firebase.projects.get"]
+[debug] [2020-02-10T02:48:01.691Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-10T02:48:01.692Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-10T02:48:02.489Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-10T02:48:02.692Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/instacool-96942:testIamPermissions  
 
-[debug] [2020-02-08T16:40:00.740Z] <<< HTTP RESPONSE 200
-[debug] [2020-02-08T16:40:00.744Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/instacool-96942  
+[debug] [2020-02-10T02:48:03.568Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-10T02:48:03.571Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/instacool-96942  
  
-[debug] [2020-02-08T16:40:01.384Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-10T02:48:04.157Z] <<< HTTP RESPONSE 200
 [info] ✔  functions: Using node@8 from host.
-[debug] [2020-02-08T16:40:01.486Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-02-08T16:40:01.487Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-02-08T16:40:01.489Z] Accepted request GET /instacool-96942/us-central1/api --> api
-[debug] [2020-02-08T16:40:01.507Z] [worker-pool] addWorker(api)
-[debug] [2020-02-08T16:40:01.507Z] [worker-pool] Adding worker with key api, total=1
-[debug] [2020-02-08T16:40:01.507Z] [worker-pool] submitWork(triggerId=api)
-[debug] [2020-02-08T16:40:01.508Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: Assigning socketPath: /tmp/fire_emu_10593.sock
-[debug] [2020-02-08T16:40:01.509Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: BUSY
 [info] ✔  functions: Emulator started at http://localhost:5000
 [info] i  functions: Watching "/home/duvg/rcprojects/instacool/functions" for Cloud Functions...
-[debug] [2020-02-08T16:40:01.705Z] [worker-pool] Marking BUSY worker to finish (api)
-[debug] [2020-02-08T16:40:01.705Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: FINISHING
-[debug] [2020-02-08T16:40:01.719Z] [worker-pool] addWorker(~diagnostic~)
-[debug] [2020-02-08T16:40:01.720Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
-[debug] [2020-02-08T16:40:01.720Z] [worker-pool] submitWork(triggerId=)
-[debug] [2020-02-08T16:40:01.728Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: Assigning socketPath: /tmp/fire_emu_10599.sock
-[debug] [2020-02-08T16:40:01.728Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: BUSY
-[debug] [2020-02-08T16:40:01.839Z] [work-queue] {"queueLength":1,"workRunningCount":1}
-[debug] [2020-02-08T16:40:01.839Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2020-02-08T16:40:01.839Z] Accepted request GET /instacool-96942/us-central1/api --> api
-[debug] [2020-02-08T16:40:01.852Z] [worker-pool] addWorker(api)
-[debug] [2020-02-08T16:40:01.852Z] [worker-pool] Adding worker with key api, total=2
-[debug] [2020-02-08T16:40:01.852Z] [worker-pool] submitWork(triggerId=api)
-[debug] [2020-02-08T16:40:01.853Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: Assigning socketPath: /tmp/fire_emu_10605.sock
-[debug] [2020-02-08T16:40:01.853Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: BUSY
-[debug] [2020-02-08T16:40:02.109Z] [work-queue] {"queueLength":1,"workRunningCount":2}
-[debug] [2020-02-08T16:40:02.110Z] [work-queue] {"queueLength":0,"workRunningCount":3}
-[debug] [2020-02-08T16:40:02.110Z] Accepted request GET /instacool-96942/us-central1/api --> api
-[debug] [2020-02-08T16:40:02.130Z] [worker-pool] addWorker(api)
-[debug] [2020-02-08T16:40:02.130Z] [worker-pool] Adding worker with key api, total=3
-[debug] [2020-02-08T16:40:02.131Z] [worker-pool] submitWork(triggerId=api)
-[debug] [2020-02-08T16:40:02.132Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: Assigning socketPath: /tmp/fire_emu_10611.sock
-[debug] [2020-02-08T16:40:02.132Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: BUSY
-[debug] [2020-02-08T16:40:02.241Z] [runtime-status] [10593] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:40:02.252Z] [runtime-status] [10593] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:40:02.262Z] [runtime-status] [10593] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:40:02.268Z] [runtime-status] [10593] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.275Z] [runtime-status] [10593] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.453Z] [work-queue] {"queueLength":1,"workRunningCount":3}
-[debug] [2020-02-08T16:40:02.454Z] [work-queue] {"queueLength":0,"workRunningCount":4}
-[debug] [2020-02-08T16:40:02.454Z] Accepted request GET /instacool-96942/us-central1/api --> api
-[debug] [2020-02-08T16:40:02.478Z] [worker-pool] addWorker(api)
-[debug] [2020-02-08T16:40:02.479Z] [worker-pool] Adding worker with key api, total=4
-[debug] [2020-02-08T16:40:02.479Z] [worker-pool] submitWork(triggerId=api)
-[debug] [2020-02-08T16:40:02.479Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: Assigning socketPath: /tmp/fire_emu_10617.sock
-[debug] [2020-02-08T16:40:02.479Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: BUSY
-[debug] [2020-02-08T16:40:02.481Z] [runtime-status] [10599] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:40:02.481Z] [runtime-status] [10599] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:40:02.485Z] [runtime-status] [10599] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:40:02.487Z] [runtime-status] [10599] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.494Z] [runtime-status] [10599] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.707Z] [runtime-status] [10593] Trigger "api" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "api"
-[debug] [2020-02-08T16:40:02.713Z] [runtime-status] [10593] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2020-02-08T16:40:02.713Z] [runtime-status] [10593] Running api in mode HTTPS
-[debug] [2020-02-08T16:40:02.769Z] [runtime-status] [10593] Attempting to listen to socketPath: /tmp/fire_emu_10593.sock
-[debug] [2020-02-08T16:40:02.791Z] [functions] Runtime ready! Sending request!
-[debug] [2020-02-08T16:40:02.863Z] [runtime-status] [10605] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:40:02.882Z] [runtime-status] [10605] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:40:02.907Z] [runtime-status] [10605] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:40:02.907Z] [runtime-status] [10605] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.907Z] [runtime-status] [10605] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:02.931Z] [runtime-status] [10593] Ephemeral server handling GET request
+[debug] [2020-02-10T02:48:04.491Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-10T02:48:04.491Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-10T02:48:04.491Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-10T02:48:04.493Z] [worker-~diagnostic~-21284895-18fd-44e9-9d95-39177663fc95]: Assigning socketPath: /tmp/fire_emu_2847.sock
+[debug] [2020-02-10T02:48:04.501Z] [worker-~diagnostic~-21284895-18fd-44e9-9d95-39177663fc95]: BUSY
+[debug] [2020-02-10T02:48:05.425Z] [runtime-status] [2847] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
+[debug] [2020-02-10T02:48:05.432Z] [runtime-status] [2847] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-10T02:48:05.436Z] [runtime-status] [2847] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-10T02:48:05.440Z] [runtime-status] [2847] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to key.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-02-10T02:48:05.441Z] [runtime-status] [2847] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
 [info] ✔  functions[api]: http function initialized (http://localhost:5000/instacool-96942/us-central1/api).
-[debug] [2020-02-08T16:40:02.975Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: IDLE
-[debug] [2020-02-08T16:40:02.998Z] [runtime-status] [10593] Ephemeral server survived.
-[info] i  functions: Finished "api" in ~1s
-[debug] [2020-02-08T16:40:03.012Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: IDLE --> FINISHING
-[debug] [2020-02-08T16:40:03.045Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: exited
-[debug] [2020-02-08T16:40:03.046Z] [worker-api-cd6a085a-24fa-46fe-9ae8-01a9202c9211]: FINISHED
-[debug] [2020-02-08T16:40:03.046Z] [work-queue] {"queueLength":0,"workRunningCount":3}
-[debug] [2020-02-08T16:40:03.130Z] [runtime-status] [10611] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:40:03.137Z] [runtime-status] [10611] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:40:03.142Z] [runtime-status] [10611] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:40:03.144Z] [runtime-status] [10611] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:03.149Z] [runtime-status] [10611] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:03.207Z] [runtime-status] [10605] Trigger "api" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "api"
-[debug] [2020-02-08T16:40:03.209Z] [runtime-status] [10605] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2020-02-08T16:40:03.209Z] [runtime-status] [10605] Running api in mode HTTPS
-[debug] [2020-02-08T16:40:03.222Z] [runtime-status] [10605] Attempting to listen to socketPath: /tmp/fire_emu_10605.sock
-[debug] [2020-02-08T16:40:03.234Z] [functions] Runtime ready! Sending request!
-[debug] [2020-02-08T16:40:03.288Z] [runtime-status] [10605] Ephemeral server handling GET request
-[debug] [2020-02-08T16:40:03.310Z] [runtime-status] [10605] Ephemeral server survived.
-[info] i  functions: Finished "api" in ~1s
-[debug] [2020-02-08T16:40:03.317Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: IDLE
-[debug] [2020-02-08T16:40:03.317Z] [work-queue] {"queueLength":0,"workRunningCount":2}
-[debug] [2020-02-08T16:40:03.423Z] [runtime-status] [10617] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:40:03.428Z] [runtime-status] [10617] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:40:03.434Z] [runtime-status] [10617] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:40:03.438Z] [runtime-status] [10617] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:03.439Z] [runtime-status] [10617] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:40:03.464Z] [runtime-status] [10611] Trigger "api" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "api"
-[debug] [2020-02-08T16:40:03.471Z] [runtime-status] [10611] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2020-02-08T16:40:03.471Z] [runtime-status] [10611] Running api in mode HTTPS
-[debug] [2020-02-08T16:40:03.484Z] [runtime-status] [10611] Attempting to listen to socketPath: /tmp/fire_emu_10611.sock
-[debug] [2020-02-08T16:40:03.488Z] [functions] Runtime ready! Sending request!
-[debug] [2020-02-08T16:40:03.539Z] [runtime-status] [10611] Ephemeral server handling GET request
-[debug] [2020-02-08T16:40:03.554Z] [runtime-status] [10611] Ephemeral server survived.
-[info] i  functions: Finished "api" in ~1s
-[debug] [2020-02-08T16:40:03.559Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: IDLE
-[debug] [2020-02-08T16:40:03.559Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-02-08T16:40:03.685Z] [runtime-status] [10617] Trigger "api" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "api"
-[debug] [2020-02-08T16:40:03.687Z] [runtime-status] [10617] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2020-02-08T16:40:03.687Z] [runtime-status] [10617] Running api in mode HTTPS
-[debug] [2020-02-08T16:40:03.696Z] [runtime-status] [10617] Attempting to listen to socketPath: /tmp/fire_emu_10617.sock
-[debug] [2020-02-08T16:40:03.716Z] [functions] Runtime ready! Sending request!
-[debug] [2020-02-08T16:40:03.748Z] [runtime-status] [10617] Ephemeral server handling GET request
-[debug] [2020-02-08T16:40:03.764Z] [runtime-status] [10617] Ephemeral server survived.
-[info] i  functions: Finished "api" in ~1s
-[debug] [2020-02-08T16:40:03.767Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: IDLE
-[debug] [2020-02-08T16:40:03.767Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-02-08T16:40:09.667Z] [work-queue] {"queueLength":1,"workRunningCount":0}
-[debug] [2020-02-08T16:40:09.667Z] [work-queue] {"queueLength":0,"workRunningCount":1}
-[debug] [2020-02-08T16:40:09.667Z] Accepted request GET /instacool-96942/us-central1/api --> api
-[debug] [2020-02-08T16:40:09.667Z] [worker-pool] Cleaned up workers for api: 4 --> 3
-[debug] [2020-02-08T16:40:09.667Z] [worker-pool] submitWork(triggerId=api)
-[debug] [2020-02-08T16:40:09.668Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: Assigning socketPath: /tmp/fire_emu_10605.sock
-[debug] [2020-02-08T16:40:09.668Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: BUSY
-[debug] [2020-02-08T16:40:09.671Z] [runtime-status] [10605] Trigger "api" has been found, beginning invocation!
-[info] i  functions: Beginning execution of "api"
-[debug] [2020-02-08T16:40:09.671Z] [runtime-status] [10605] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2020-02-08T16:40:09.672Z] [runtime-status] [10605] Running api in mode HTTPS
-[debug] [2020-02-08T16:40:09.672Z] [runtime-status] [10605] Attempting to listen to socketPath: /tmp/fire_emu_10605.sock
-[debug] [2020-02-08T16:40:09.672Z] [functions] Runtime ready! Sending request!
-[debug] [2020-02-08T16:40:09.678Z] [runtime-status] [10605] Ephemeral server handling GET request
-[debug] [2020-02-08T16:40:09.678Z] [runtime-status] [10605] Ephemeral server survived.
-[info] i  functions: Finished "api" in ~1s
-[debug] [2020-02-08T16:40:09.687Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: IDLE
-[debug] [2020-02-08T16:40:09.687Z] [work-queue] {"queueLength":0,"workRunningCount":0}
-[debug] [2020-02-08T16:42:44.560Z] File /home/duvg/rcprojects/instacool/functions/src/createServer.ts changed, reloading triggers
-[debug] [2020-02-08T16:42:45.561Z] [worker-pool] Shutting down IDLE worker (api)
-[debug] [2020-02-08T16:42:45.561Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: FINISHING
-[debug] [2020-02-08T16:42:45.562Z] [worker-pool] Shutting down IDLE worker (api)
-[debug] [2020-02-08T16:42:45.562Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: FINISHING
-[debug] [2020-02-08T16:42:45.562Z] [worker-pool] Shutting down IDLE worker (api)
-[debug] [2020-02-08T16:42:45.562Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: FINISHING
-[debug] [2020-02-08T16:42:45.563Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
-[debug] [2020-02-08T16:42:45.563Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: FINISHING
-[debug] [2020-02-08T16:42:45.575Z] [worker-pool] addWorker(~diagnostic~)
-[debug] [2020-02-08T16:42:45.575Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
-[debug] [2020-02-08T16:42:45.576Z] [worker-pool] submitWork(triggerId=)
-[debug] [2020-02-08T16:42:45.576Z] [worker-~diagnostic~-8d848412-74d0-4c3d-9be8-f5cea118f3e8]: Assigning socketPath: /tmp/fire_emu_10707.sock
-[debug] [2020-02-08T16:42:45.576Z] [worker-~diagnostic~-8d848412-74d0-4c3d-9be8-f5cea118f3e8]: BUSY
-[debug] [2020-02-08T16:42:45.580Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: exited
-[debug] [2020-02-08T16:42:45.580Z] [worker-api-786844e3-2fda-4809-a802-89d077ea040b]: FINISHED
-[debug] [2020-02-08T16:42:45.592Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: exited
-[debug] [2020-02-08T16:42:45.592Z] [worker-~diagnostic~-92582143-ef73-4eb3-892b-a400ccc40a59]: FINISHED
-[debug] [2020-02-08T16:42:45.593Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: exited
-[debug] [2020-02-08T16:42:45.593Z] [worker-api-c9b4ed30-cdf8-4d9e-a8cf-a26a74557ad6]: FINISHED
-[debug] [2020-02-08T16:42:45.593Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: exited
-[debug] [2020-02-08T16:42:45.593Z] [worker-api-66f78dff-4a03-4174-a83a-228f6f9a4c4e]: FINISHED
-[debug] [2020-02-08T16:42:46.184Z] [runtime-status] [10707] Functions runtime initialized. {"cwd":"/home/duvg/rcprojects/instacool/functions","node_version":"8.13.0"}
-[debug] [2020-02-08T16:42:46.189Z] [runtime-status] [10707] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
-[debug] [2020-02-08T16:42:46.194Z] [runtime-status] [10707] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2020-02-08T16:42:46.197Z] [runtime-status] [10707] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:42:46.201Z] [runtime-status] [10707] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/home/duvg/rcprojects/instacool/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2020-02-08T16:42:46.409Z] [worker-~diagnostic~-8d848412-74d0-4c3d-9be8-f5cea118f3e8]: IDLE
+[debug] [2020-02-10T02:48:27.561Z] [worker-~diagnostic~-21284895-18fd-44e9-9d95-39177663fc95]: IDLE
