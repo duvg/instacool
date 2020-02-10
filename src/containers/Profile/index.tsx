@@ -7,7 +7,9 @@ import  * as postsDuck  from '../../ducks/Posts';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { submit } from 'redux-form';
 import { ThunkDispatch } from 'redux-thunk';
+
 
 import services from '../../services/index';
 
@@ -19,7 +21,7 @@ const styles = {
     container: {
         padding: '15px',
     },
-    image: {
+    image: {    
         width: '200px'
     },
     row: {
@@ -34,7 +36,9 @@ interface IProfileProps {
     data: postsDuck.IPost[][]
     fetchPosts: () => void,
     fetched: boolean,
-    loading: boolean
+    handleProfileImageSubmit: (a: {file: File}) => void,
+    loading: boolean,
+    submitProfileImg: () => void
     
 }
 class Profile extends React.Component<IProfileProps> {
@@ -51,12 +55,12 @@ class Profile extends React.Component<IProfileProps> {
     }
 
     public render() {
-        const { data } = this.props;
+        const { data, submitProfileImg, handleProfileImageSubmit } = this.props;
 
         return(
             <div style={styles.container}>
                 <div style={styles.row}>
-                    <ProfileImg />
+                    <ProfileImg onSubmit={handleProfileImageSubmit} submitProfileImg={submitProfileImg} />
                     <Button>Agregar</Button>
                 </div>
                 { data.map((x, index) => (
@@ -91,5 +95,8 @@ const mapStateToProps = (state: any) => {
         loading,   
     }
 }
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => bindActionCreators(postsDuck, dispatch);
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => bindActionCreators({
+    ...postsDuck,
+    submitProfileImg: () => submit('profileImg'),
+}, dispatch);
 export default connect(mapStateToProps,mapDispatchToProps)(Profile);

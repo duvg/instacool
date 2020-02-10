@@ -159,4 +159,8 @@ export const share = (id: string) =>
 
     }
 
-
+export const handleProfileImageSubmit = (payload: { file : File }) => 
+    (dispatch: Dispatch, getState: () => any, {}: IServices) => {
+        // tslint:disable-next-line:no-console
+        console.log(payload);
+    }
