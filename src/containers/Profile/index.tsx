@@ -36,8 +36,9 @@ interface IProfileProps {
     data: postsDuck.IPost[][]
     fetchPosts: () => void,
     fetched: boolean,
-    handleProfileImageSubmit: (a: {file: File}) => void,
+    handleProfileImageSubmit: (a: {profileImg: File}) => void,
     loading: boolean,
+    profileImg: string,
     submitProfileImg: () => void
     
 }
@@ -55,12 +56,16 @@ class Profile extends React.Component<IProfileProps> {
     }
 
     public render() {
-        const { data, submitProfileImg, handleProfileImageSubmit } = this.props;
+        const { data, submitProfileImg, handleProfileImageSubmit, profileImg } = this.props;
 
         return(
             <div style={styles.container}>
                 <div style={styles.row}>
-                    <ProfileImg onSubmit={handleProfileImageSubmit} submitProfileImg={submitProfileImg} />
+                    <ProfileImg 
+                        profileImg={profileImg} 
+                        onSubmit={handleProfileImageSubmit} 
+                        submitProfileImg={submitProfileImg} 
+                    />
                     <Button>Agregar</Button>
                 </div>
                 { data.map((x, index) => (
@@ -81,7 +86,9 @@ class Profile extends React.Component<IProfileProps> {
 
 const mapStateToProps = (state: any) => {
     const { Posts: {data, fetched, fetching} } = state;
+    const { Users: { profileImg: tempPI } } = state;
     const loading = fetching || !fetched;
+    const profileImg = tempPI || 'https://picsum.photos/100/100';
     
     const filtered = Object.keys(data).reduce((acc, el) => {
         if(data[el].userId !== (auth.currentUser && auth.currentUser.uid)) {
@@ -92,7 +99,8 @@ const mapStateToProps = (state: any) => {
     return {
         data: chunk(filtered, 3),
         fetched,
-        loading,   
+        loading,
+        profileImg
     }
 }
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => bindActionCreators({
