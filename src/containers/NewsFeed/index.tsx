@@ -2,10 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import { IState } from '../../ducks/index';
+
 import Container from 'src/components/layout/Container';
 import Post from '../../components/Post';
 
 import  * as postsDuck  from '../../ducks/Posts';
+
 
 
 
@@ -64,7 +67,7 @@ class NewsFeed extends React.Component<INewsfeedProps> {
     }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
     const { Posts: {data, fetched, fetching} } = state;
     const loading = fetching || !fetched
     return {

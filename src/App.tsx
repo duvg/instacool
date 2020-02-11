@@ -2,19 +2,19 @@ import * as React from 'react';
 import './App.css';
 
 import { History } from 'history';
+import { Route } from 'react-router';
 
 import Navbar from './components/layout/Navbar';
 import Login from './containers/auth/Login';
-
 import Register from './containers/auth/Register';
 import NewsFeed from './containers/NewsFeed';
 import Profile from './containers/Profile';
 
-import { Route } from 'react-router';
 import services from './services';
 
 interface IAppProps {
-  history: History
+  history: History,
+  loadInitialData: () => void
 }
 
 class App extends React.Component<IAppProps> {
@@ -23,13 +23,13 @@ class App extends React.Component<IAppProps> {
     loading: true,
   }
 
-
   public componentDidMount() {
     const { auth } = services;
 
     auth.onAuthStateChanged(user => {
-      
       if (user) {
+        const { loadInitialData } = this.props;
+        loadInitialData();
         if (['/', '/register'].indexOf(location.pathname) > -1 ) {
           const { history } = this.props;
           history.push('/app/newsfeed');

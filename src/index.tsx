@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 
 
 import * as reducers from './ducks';
+import { loadUserInitialData } from './ducks/Users';
 
 import { Router } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
@@ -26,6 +27,7 @@ const store = createStore(combineReducers({
   applyMiddleware(thunk.withExtraArgument(services))
 ));
 
+const loadInitialData = () => store.dispatch(loadUserInitialData());
 
 const history = createHistory();
 
@@ -33,7 +35,7 @@ const history = createHistory();
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history} >
-      <App history={history}/>
+      <App loadInitialData={loadInitialData} history={history}/>
     </Router>
   </Provider>,
   document.getElementById('root') as HTMLElement

@@ -4,6 +4,7 @@ import Card from 'src/components/layout/Card';
 import ProfileImg from '../../components/ProfileImg';
 
 import  * as postsDuck  from '../../ducks/Posts';
+import  * as usersDuck  from '../../ducks/Users';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,6 +15,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import services from '../../services/index';
 
 import { chunk } from 'lodash';
+import { IState } from '../../ducks/index';
 
 const { auth } = services;
 
@@ -84,7 +86,7 @@ class Profile extends React.Component<IProfileProps> {
     }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
     const { Posts: {data, fetched, fetching} } = state;
     const { Users: { profileImg: tempPI } } = state;
     const loading = fetching || !fetched;
@@ -105,6 +107,7 @@ const mapStateToProps = (state: any) => {
 }
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => bindActionCreators({
     ...postsDuck,
+    ...usersDuck,
     submitProfileImg: () => submit('profileImg'),
 }, dispatch);
 export default connect(mapStateToProps,mapDispatchToProps)(Profile);

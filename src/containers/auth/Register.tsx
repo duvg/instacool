@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { connect } from 'react-redux';
+import { IState } from '../../ducks/index';
 
 // Components
 import Card from '../../components/layout/Card';
@@ -10,6 +11,7 @@ import RegisterForm from '../../components/RegisterForm'
 
 import { ThunkDispatch } from 'redux-thunk';
 import { ILogin, register as registerThunk,  } from '../../ducks/Users';
+
 
 
 interface IRegisterProps {
@@ -31,7 +33,7 @@ class Register extends React.Component<IRegisterProps> {
         )
     }
 }
-const mapStateToProps = (state: any) => state;
+const mapStateToProps = (state: IState) => state;
 const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, any>) => ({
     register: (payload: any) => dispatch(registerThunk(payload))
 });

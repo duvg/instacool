@@ -2,7 +2,6 @@ import { firestore } from 'firebase';
 import { AnyAction, Dispatch } from 'redux';
 import { IServices } from 'src/services';
 import { download } from 'src/Utils';
-import { userSetProfielImage } from './Users';
 
 // Types
 const POST_FETCH_START = 'POST_FETCH_START';
@@ -158,24 +157,4 @@ export const share = (id: string) =>
             imageURL,
         } } as IDataPosts));
 
-    }
-
-export const handleProfileImageSubmit = (payload: { profileImg : File }) => 
-    async (dispatch: Dispatch, getState: () => any, { auth, storage }: IServices) => {
-        if(!auth.currentUser) {
-            return;
-        }
-
-        // tslint:disable-next-line:no-console
-        console.log(payload);
-        
-
-        const { uid } = auth.currentUser;
-        const storageRef = storage.ref();
-        const response = await storageRef
-            .child(`profileImages`)
-            .child(`${uid}.jpg`)
-            .put(payload.profileImg);
-        const url = await response.ref.getDownloadURL();
-        dispatch(userSetProfielImage(url));
     }
